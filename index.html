@@ -137,7 +137,16 @@
         }
         
         .status {
-            display: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 5px;
+            border-radius: 3px;
+            font-size: 10px;
+            z-index: 1000;
+            display: block;
         }
         
         /* Mobile Responsive Styles */
@@ -424,6 +433,8 @@
                 Object.keys(audioTracks).forEach(direction => {
                     if (audioTracks[direction]) {
                         audioTracks[direction].volume = stemVolumes[direction];
+                        // Debug logging for mobile
+                        console.log(`Mobile: ${direction} volume set to ${stemVolumes[direction]}`);
                     }
                 });
             }
