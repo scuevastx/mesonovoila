@@ -298,8 +298,9 @@
         
         // Calculate volumes based on orb position (responsive)
         function calculateVolumes(x, y) {
-            const radius = window.innerWidth <= 768 ? 
-                (window.innerWidth <= 480 ? 120 : 150) : 200;
+            // Use the same radius values as the drag constraints
+            const radius = window.innerWidth <= 480 ? 120 : 
+                          window.innerWidth <= 768 ? 150 : 200;
             const maxDistance = radius * Math.sqrt(2);
             
             const distances = {
@@ -400,8 +401,8 @@
             
             // Constrain to circle (responsive)
             const distance = Math.sqrt(x * x + y * y);
-            const maxRadius = window.innerWidth <= 768 ? 
-                (window.innerWidth <= 480 ? 120 : 150) : 250;
+            const maxRadius = window.innerWidth <= 480 ? 120 : 
+                             window.innerWidth <= 768 ? 150 : 250;
             if (distance > maxRadius) {
                 x = (x / distance) * maxRadius;
                 y = (y / distance) * maxRadius;
